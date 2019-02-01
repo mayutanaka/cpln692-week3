@@ -58,7 +58,7 @@
 
     var map = L.map('map', {
       center: [39.9522, -75.1639],
-      zoom: 14
+      zoom: 13
     });
 
     var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
@@ -74,11 +74,13 @@
     Start code
 
     ===================== */
-
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-
+    // restaurantData as array of arrays
+    var restaurantData = [[39.948351, -75.162421, "Green Eggs Cafe"],
+                          [39.959978, -75.190624, "Sabrina's Cafe"],
+                          [39.948992, -75.169543, "Bluestone Lane"]]; // [Lat, Long, Label]
+    restaurantData.forEach( r => {
+      L.marker([r[0], r[1]]).bindPopup(r[2]).addTo(map);
+    });
     /* =====================
 
     End code
