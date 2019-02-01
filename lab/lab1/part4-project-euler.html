@@ -32,7 +32,37 @@
 
     ===================== */
 
+    // Problem 1: Multiples of 3 or 5
+    function multiplesOf3or5(n) {
+      var toSum = [];
+      for (var i=1; i<n; i++) {
+        if (i%3===0 || i%5===0) { toSum.push(i); }
+      }
+      return toSum.reduce((a,b) => a+b, 0);
+    }
 
+    console.log(multiplesOf3or5(1000));
+
+    // Problem 2: Even Fibonacci Numbers
+    function evenSum(total, num) {
+      if (num%2===0) {
+        return total+num;
+      }
+      return total;
+    }
+
+    function sumEvenFibs() {
+      var fib = [0, 1];
+      var val = 0;
+      for (var i=2; val<4000000; i++) {
+        fib.push(fib[i-1]+fib[i-2]);
+        val = fib[i];
+      }
+      console.log(fib.slice(2,fib.length));
+      fib.slice(2,fib.length).reduce(evenSum, 0); //undefined -> problem in reducer?
+    }
+
+    console.log(sumEvenFibs());
 
     /* =====================
 
